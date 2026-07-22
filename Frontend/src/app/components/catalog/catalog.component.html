@@ -1,1 +1,28 @@
-<p>catálogo de carros en construcción (Fase 1)...</p>
+<h3>Catálogo de Carros (Datos Simulados)</h3>
+<hr>
+
+<table border="1" cellpadding="10" style="border-collapse: collapse; width: 100%; text-align: left;">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Marca</th>
+      <th>Modelo</th>
+      <th>Generación</th>
+      <th>Año</th>
+      <th>Equipamiento / Trim</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let car of cars">
+      <td>{{ car.id }}</td>
+      <td>{{ car.make }}</td>
+      <td>{{ car.model }}</td>
+      <td>{{ car.generation }}</td>
+      <td>{{ car.year }}</td>
+      <td>{{ car.trim }}</td>
+    </tr>
+    <tr *ngIf="cars.length === 0">
+      <td colspan="6">Cargando carros...</td>
+    </tr>
+  </tbody>
+</table>
