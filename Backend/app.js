@@ -11,17 +11,19 @@ const app = express();
 app.set('port', process.env.PORT || 3000);
 
 // Middlewares
-app.use(morgan('dev'));
+
 app.use(cors());
 app.use(bodyParser.json());
-
-app.use(myConnection(mysql, {
-    host: 'localhost',
-    user: 'root',
-    password: '@DiegoBonilla',
-    database: 'car',
-    port: 3306
+app.use(morgan('dev'));
+app.use(myConnection(mysql,{
+    host:'localhost',
+    user:'root',
+    password:'Kat20062',
+    port:3306,
+    database:'ventas'
 }, 'single'));
+app.use(express.urlencoded({extended: false}));
+
 
 // Rutas backend
 const yearRoutes = require('./rutas/year');
